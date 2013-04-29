@@ -22,7 +22,9 @@ var makeStack = function(){
 stackMethods= {};
 
 stackMethods.add = function(value){
+  this.storage[this.index] = value;
   this.index += 1;
+  return value;
 };
 
 stackMethods.remove = function(){
