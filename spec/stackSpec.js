@@ -30,6 +30,9 @@ describe("stack", function() {
       stack.add('string1');
       expect(stack.size()).to.equal(1);
     });
+    it('should return value on .add(value)', function() {
+      expect(stack.add('string2')).to.equal('string2');
+    });
   });
 
   describe('#remove()', function() {
