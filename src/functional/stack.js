@@ -12,6 +12,7 @@ var makeStack = function(){
   };
 
   stack.remove = function(){
+    size -= 1;
   };
 
   stack.size = function(){

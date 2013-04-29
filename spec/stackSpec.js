@@ -30,7 +30,14 @@ describe("stack", function() {
       stack.add('string1');
       expect(stack.size()).to.equal(1);
     });
+  });
 
+  describe('#remove()', function() {
+    it('should remove one argument', function() {
+      stack.add('blahasdf');
+      stack.remove();
+      expect(stack.size()).to.equal(0);
+    });
   });
 
   // Hey! Add more tests here to test the functionality of stack
