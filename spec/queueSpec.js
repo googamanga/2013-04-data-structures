@@ -44,6 +44,13 @@ describe("queue", function() {
     it('should throw an error if size is 0', function() {
       expect(function(){queue.dequeue()}).to.throw();
     });
+    it('should return dequeued strings in FIFO order', function() {
+      queue.enqueue('string');
+      queue.enqueue('string1');
+      queue.enqueue('string2');
+      expect(queue.dequeue()).to.equal('string');
+      expect(queue.dequeue()).to.equal('string1');
+    });
   });
   describe('#size()', function() {
     it('should return the total number of stored objects', function() {

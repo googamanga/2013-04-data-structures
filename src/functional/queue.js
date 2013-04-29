@@ -18,6 +18,7 @@ var makeQueue = function(){
       throw "Queue is size 0, can't dequeue";
     }
     endIndex -= 1;
+    return storage[endIndex];
   };
 
   queue.size = function(){
