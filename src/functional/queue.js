@@ -10,6 +10,7 @@ var makeQueue = function(){
 
   queue.enqueue = function(value){
     startIndex -= 1;
+    return storage[startIndex] = value;
   };
 
   queue.dequeue = function(){

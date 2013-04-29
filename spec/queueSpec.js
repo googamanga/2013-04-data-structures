@@ -27,19 +27,30 @@ describe("queue", function() {
     });
     it('should increase the size by one', function() {
       var size = queue.size();
-      queue.enqueue('string1');
+      queue.enqueue('string');
       expect(queue.size()).to.equal(size+1);
+    });
+    it('should return enqueued values', function() {
+      expect(queue.enqueue("string")).to.equal("string");
     });
   });
   describe('#dequeue()', function() {
     it('should take away one argument', function() {
-      queue.enqueue('string1');
+      queue.enqueue('string');
       var size = queue.size();
       queue.dequeue();
       expect(queue.size()).to.equal(size-1);
     });
     it('should throw an error if size is 0', function() {
       expect(function(){queue.dequeue()}).to.throw();
+    });
+  });
+  describe('#size()', function() {
+    it('should return the total number of stored objects', function() {
+      queue.enqueue('string');
+      queue.enqueue('string1');
+      queue.dequeue();
+      expect(queue.size()).to.equal(1);
     });
   });
 
