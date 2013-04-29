@@ -48,5 +48,17 @@ describe("stack", function() {
     });
   });
 
+  describe('#size()', function(){
+    it('should return correct number of values in storage', function() {
+      stack.add('string5');
+      expect(stack.size()).to.equal(1);
+      stack.add('string6');
+      stack.add('string7');
+      expect(stack.size()).to.equal(3);
+      stack.remove();
+      expect(stack.size()).to.equal(2);
+    });
+  });
+
   // Hey! Add more tests here to test the functionality of stack
 });
