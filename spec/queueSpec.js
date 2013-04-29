@@ -31,6 +31,17 @@ describe("queue", function() {
       expect(queue.size()).to.equal(size+1);
     });
   });
+  describe('#dequeue()', function() {
+    it('should take away one argument', function() {
+      queue.enqueue('string1');
+      var size = queue.size();
+      queue.dequeue();
+      expect(queue.size()).to.equal(size-1);
+    });
+    it('should throw an error if size is 0', function() {
+      expect(queue.dequeue()).to.throw();
+    });
+  });
 
   // Hey! Add more tests here to test the functionality of queue
 });

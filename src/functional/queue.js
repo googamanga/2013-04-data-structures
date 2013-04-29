@@ -13,6 +13,7 @@ var makeQueue = function(){
   };
 
   queue.dequeue = function(){
+    endIndex -= 1;
   };
 
   queue.size = function(){
