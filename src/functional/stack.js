@@ -14,6 +14,9 @@ var makeStack = function(){
   };
 
   stack.remove = function(){
+    if(size <= 0){
+      throw "Stack is empty";
+    }
     size -= 1;
     var value = storage[size];
     delete storage[size];

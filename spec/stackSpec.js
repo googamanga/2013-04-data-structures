@@ -46,6 +46,11 @@ describe("stack", function() {
       stack.add('string3');
       expect(stack.remove()).to.equal('string3');
     });
+    it('should throw an error when stack is empty', function(){
+      stack.add('string8');
+      stack.remove();
+      expect( function(){stack.remove(); } ).to.throw();
+    });
   });
 
   describe('#size()', function(){
@@ -58,6 +63,13 @@ describe("stack", function() {
       stack.remove();
       expect(stack.size()).to.equal(2);
     });
+    it('should not change size when error is thrown', function(){
+      try {
+        stack.remove();
+      } catch (e) {}
+      expect(stack.size()).to.equal(0);
+    });
+
   });
 
   // Hey! Add more tests here to test the functionality of stack
