@@ -39,7 +39,7 @@ describe("queue", function() {
       expect(queue.size()).to.equal(size-1);
     });
     it('should throw an error if size is 0', function() {
-      expect(queue.dequeue()).to.throw();
+      expect(function(){queue.dequeue()}).to.throw();
     });
   });
 

@@ -13,6 +13,9 @@ var makeQueue = function(){
   };
 
   queue.dequeue = function(){
+    if(queue.size() <= 0 ){
+      throw "Queue is size 0, can't dequeue";
+    }
     endIndex -= 1;
   };
 
