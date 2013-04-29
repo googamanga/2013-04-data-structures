@@ -28,7 +28,13 @@ stackMethods.add = function(value){
 };
 
 stackMethods.remove = function(){
-
+  if(this.size() <= 0){
+    throw "Stack is empty";
+  }
+  this.index -= 1;
+  var value = this.storage[this.index];
+  delete this.storage[this.index];
+  return value;
 };
 
 stackMethods.size = function(){
