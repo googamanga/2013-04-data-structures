@@ -26,6 +26,11 @@ describe("stack", function() {
       // Make sure add() takes a single argument using (see http://mdn.io/Function.length)
       expect(stack.add.length).to.equal(1);
     });
+    it('should increase in size by the number of elements added', function() {
+      stack.add('string1');
+      expect(stack.size()).to.equal(1);
+    });
+
   });
 
   // Hey! Add more tests here to test the functionality of stack
