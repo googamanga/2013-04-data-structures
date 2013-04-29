@@ -25,6 +25,11 @@ describe("queue", function() {
       // Make sure add() takes a single argument using (see http://mdn.io/Function.length)
       expect(queue.enqueue.length).to.equal(1);
     });
+    it('should increase the size by one', function() {
+      var size = queue.size();
+      queue.enqueue('string1');
+      expect(queue.size()).to.equal(size+1);
+    });
   });
 
   // Hey! Add more tests here to test the functionality of queue
