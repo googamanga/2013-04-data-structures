@@ -41,6 +41,11 @@ describe("stack", function() {
       stack.remove();
       expect(stack.size()).to.equal(0);
     });
+    it('should return the most recently added value', function(){
+      stack.add('string4');
+      stack.add('string3');
+      expect(stack.remove()).to.equal('string3');
+    });
   });
 
   // Hey! Add more tests here to test the functionality of stack
