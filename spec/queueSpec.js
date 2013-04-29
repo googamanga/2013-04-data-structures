@@ -11,20 +11,19 @@ describe("queue", function() {
       queue = new Queue();
     }
   });
-
   // Any queue implementation should have the following methods
-  it('should have "add", "remove", and "size" methods', function() {
-    expect(queue.add).to.be.a('function');
-    expect(queue.remove).to.be.a('function');
+  it('should have "enqeue", "dequeue", and "size" methods', function() {
+    expect(queue.enqueue).to.be.a('function');
+    expect(queue.dequeue).to.be.a('function');
     expect(queue.size).to.be.a('function');
   });
 
   // Organize your tests with nested describe() statements
   // Use '#methodName()' to denote tests that focus on a certain method
-  describe('#add()', function() {
+  describe('#enqueue()', function() {
     it('should take one argument', function() {
       // Make sure add() takes a single argument using (see http://mdn.io/Function.length)
-      expect(queue.add.length).to.equal(1);
+      expect(queue.enqueue.length).to.equal(1);
     });
   });
 
