@@ -1,0 +1,198 @@
+<script>
+//function
+var stack_func = function(){
+  var makeStack = function(){
+    // Use an object with numeric keys to store values
+    var storage = {};
+
+    var size = 0; // Hint: set an initial value here
+    // Implement the methods below
+    var stack = {};
+
+    stack.add = function(value){
+      storage[size] = value;
+      size += 1;
+      return value;
+    };
+
+    stack.remove = function(){
+      if(size <= 0){
+        throw "Stack is empty";
+      }
+      size -= 1;
+      var value = storage[size];
+      delete storage[size];
+      return value;
+    };
+
+    stack.size = function(){
+      return size;
+    };
+
+    return stack;
+  };
+
+  var stack = makeStack();
+  console.log('start!');
+  for(var i = 0; i < 10000000; i++){
+    stack.add('i');
+  }
+  console.log('done!');
+  return stack;
+}
+
+
+
+//function-shared
+var stack_func_share = function(){
+  var extend = function(obj, extention) {
+    var keys = Object.keys(extention);
+
+    for(var i =0; i < keys.length; i++){
+      var key = keys[i];
+      obj[key] = extention[key];
+    }
+    return obj;
+  };
+
+
+  var makeStack = function(){
+    // Use an object with numeric keys to store values
+    //var storage = {};
+    var stack = {};
+    stack.index = 0;
+    stack.storage = {};
+    extend(stack, stackMethods);
+    return stack;
+  };
+
+  stackMethods= {};
+
+  stackMethods.add = function(value){
+    this.storage[this.index] = value;
+    this.index += 1;
+    return value;
+  };
+
+  stackMethods.remove = function(){
+    if(this.size() <= 0){
+      throw "Stack is empty";
+    }
+    this.index -= 1;
+    var value = this.storage[this.index];
+    delete this.storage[this.index];
+    return value;
+  };
+
+  stackMethods.size = function(){
+    return this.index;
+  };
+
+  var stack = makeStack();
+  console.log('start!');
+  for(var i = 0; i < 10000000; i++){
+    stack.add('i');
+  }
+  console.log('done!');
+  return stack;
+}
+
+//prototypal
+var stack_prototypal = function(){
+  var extend = function(obj, extention) {
+    var keys = Object.keys(extention);
+
+    for(var i =0; i < keys.length; i++){
+      var key = keys[i];
+      obj[key] = extention[key];
+    }
+    return obj;
+  };
+
+
+  var Stack = function(){
+    // Use an object with numeric keys to store values
+    //var storage = {};
+    var stack = Object.create(Stack.prototype);
+    stack.index = 0;
+    stack.storage = {};
+    return stack;
+  };
+
+  Stack.prototype.add = function(value){
+    this.storage[this.index] = value;
+    this.index += 1;
+    return value;
+  };
+
+  Stack.prototype.remove = function(){
+    if(this.size() <= 0){
+      throw "Stack is empty";
+    }
+    this.index -= 1;
+    var value = this.storage[this.index];
+    delete this.storage[this.index];
+    return value;
+  };
+
+  Stack.prototype.size = function(){
+    return this.index;
+  };
+
+
+  var stack = Stack();
+  console.log('start!');
+  for(var i = 0; i < 10000000; i++){
+    stack.add('i');
+  }
+  console.log('done!');
+  return stack;
+}
+
+//pseudoclassical
+var stack_pseudoclassical = function(){
+  var extend = function(obj, extention) {
+    var keys = Object.keys(extention);
+
+    for(var i =0; i < keys.length; i++){
+      var key = keys[i];
+      obj[key] = extention[key];
+    }
+    return obj;
+  };
+
+  var Stack = function(){
+    this.index = 0;
+    this.storage = {};
+  };
+
+  Stack.prototype.add = function(value){
+    this.storage[this.index] = value;
+    this.index += 1;
+    return value;
+  };
+
+  Stack.prototype.remove = function(){
+    if(this.size() <= 0){
+      throw "Stack is empty";
+    }
+    this.index -= 1;
+    var value = this.storage[this.index];
+    delete this.storage[this.index];
+    return value;
+  };
+
+  Stack.prototype.size = function(){
+    return this.index;
+  };
+
+
+  var stack = new Stack();
+  console.log('start!');
+  for(var i = 0; i < 10000000; i++){
+    stack.add('i');
+  }
+  console.log('done!');
+  return stack;
+}
+</script>
