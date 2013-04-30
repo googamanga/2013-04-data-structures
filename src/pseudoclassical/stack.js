@@ -8,7 +8,6 @@ var extend = function(obj, extention) {
   return obj;
 };
 
-
 var Stack = function(){
   this.index = 0;
   this.storage = {};
